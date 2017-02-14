@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Ajax tchat !{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+    $( document ).ready(function() {
+    $.ajax({
+        url: "/postmessage",
+        dataType: 'json',
+  complete : function(result){
+console.log(result);
+//cartnb=result.responseJSON.cartnb;
+//$('.cart').append(cartnb);
+
+}    });
+});
+        </script>
+        {% endblock %}
+    </body>
+</html>
